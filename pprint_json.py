@@ -1,8 +1,12 @@
+#-------------------------------------imports-----------------------------------
 import json,sys
+#-------------------------------------core--------------------------------------
 def load_data(filepath):
   with open(filepath,encoding='cp1251') as json_record:
     result = json.load(json_record)
   return result
+
+
 def pretty_print_json(json_obj):
   def sub_print(json_record,ind=0,ignore=False):
     if isinstance(json_record,dict):
@@ -25,6 +29,8 @@ def pretty_print_json(json_obj):
       else:
         return '  '*ind+repr(json_record)
   print(sub_print(json_obj))
+#--------------------------------------main-------------------------------------
 if __name__ == '__main__':
   null = None
   pretty_print_json((load_data(sys.argv[1])))
+#---------------------------------------fin-------------------------------------
